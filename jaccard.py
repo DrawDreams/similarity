@@ -35,7 +35,6 @@ def jaccard(x,y):
     union= len(list(set(keywords_x).union(set(keywords_y))))
     # 除零处理
     similarity = float(intersection)/float(union) if union != 0 else 0
-    # 返回值 （1.相似度 2.第一个内容有意义的词的个数 3.第二个内容有意义的词的个数
     return similarity
 
 
@@ -44,4 +43,4 @@ if __name__ == '__main__':
     content_one = '<span style="font-size: 16px; font-family: arial, helvetica, sans-serif;">2,&nbsp;Elastic cuffs and stretch fabric provide snug-fitting fte dwadw ddawd and games.</span>'
     content_two = '<span style="font-size: 16px; font-family: arial, helvetica, sans-serif;">2,&nbsp;Elastic cuffs and stretch fabric provide snug-fitting fte dwadw ddawd and test.</span>'
     similarity = jaccard(content_one, content_two)
-    print('相似度: %.2f%%'% (similarity*100)) 
+    print('相似度: %.2f%%'% (similarity*100))
