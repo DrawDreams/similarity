@@ -41,7 +41,8 @@ def jaccard(x,y):
 
 # 测试
 if __name__ == '__main__':
-    content_one = '<span style="font-size: 16px; font-family: arial, helvetica, sans-serif;">2,&nbsp;Elastic cuffs and stretch fabric provide snug-fitting fte dwadw ddawd and games.</span>'
-    content_two = '<span style="font-size: 16px; font-family: arial, helvetica, sans-serif;">2,&nbsp;Elastic cuffs and stretch fabric provide snug-fitting fte dwadw ddawd and test.</span>'
-    similarity = jaccard(content_one, content_two)
-    print('相似度: %.2f%%'% (similarity*100))
+    with open('./sample_x.txt', 'r') as x, open('./sample_y.txt', 'r') as y:
+        content_x = x.read()
+        content_y = y.read()
+        similarity = jaccard(content_x, content_y)
+        print('相似度: %.2f%%'% (similarity*100))
