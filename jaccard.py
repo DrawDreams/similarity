@@ -13,9 +13,9 @@ import html
 def extract_keywords(content):
     # 正则过滤 html 标签
     re_exp = re.compile(r'<[^>]+>',re.S)
-    content_html = re_exp.sub(' ',content)
+    content = re_exp.sub(' ',content)
     # html 转义符实体化
-    content = html.unescape(content_html)
+    content = html.unescape(content)
     # 内容切割
     seg = jieba.cut(content.lower(), cut_all=True)
     # 关键词提取
