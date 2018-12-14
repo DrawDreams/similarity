@@ -33,7 +33,7 @@ def jaccard(x,y):
 
     # jaccard相似度计算
     intersection = len(list(set(keywords_x).intersection(set(keywords_y))))
-    union= len(list(set(keywords_x).union(set(keywords_y))))
+    union = len(list(set(keywords_x).union(set(keywords_y))))
     # 除零处理
     similarity = float(intersection)/union if union != 0 else 0
     return similarity
