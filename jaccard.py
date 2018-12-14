@@ -16,7 +16,7 @@ def extract_keywords(content):
     # html 转义符实体化
     content = html.unescape(content_html)
     # 内容切割
-    seg = jieba.cut(content, cut_all=True)
+    seg = jieba.cut(content.lower(), cut_all=True)
     # 关键词提取
     keywords = jieba.analyse.extract_tags("|".join(seg), topK=200, withWeight=False)
     return keywords
@@ -34,7 +34,7 @@ def jaccard(x,y):
     intersection = len(list(set(keywords_x).intersection(set(keywords_y))))
     union= len(list(set(keywords_x).union(set(keywords_y))))
     # 除零处理
-    similarity = float(intersection)/float(union) if union != 0 else 0
+    similarity = float(intersection)/union if union != 0 else 0
     return similarity
 
 
