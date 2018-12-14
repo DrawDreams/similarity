@@ -66,10 +66,10 @@ class SimHash(object):
         return "".join(result)
 
 
-    def getDistince(self, hash1, hash2):
+    def getDistince(self, simhash1, simhash2):
         length = 0
-        for index, char in enumerate(hash1):
-            if char == hash2[index]:
+        for index, char in enumerate(simhash1):
+            if char == simhash2[index]:
                 continue
             else:
                 length += 1
@@ -84,10 +84,10 @@ if __name__ == '__main__':
         content_x = x.read()
         content_y = y.read()
 
-        hash1 = simhash.simHash(content_x)
-        hash2 = simhash.simHash(content_y)
+        simhash1 = simhash.simHash(content_x)
+        simhash2 = simhash.simHash(content_y)
 
-        distince = simhash.getDistince(hash1, hash2)
+        distince = simhash.getDistince(simhash1, simhash2)
         threshold = 3
-        print(f'hash1: {hash1}\nhash2: {hash2}')
-        print("海明距离：", distince, "判定距离：", threshold, "是否相似：", distince <= threshold)
+        print(f'相似哈希指纹1: {simhash1}\n相似哈希指纹2: {simhash2}')
+        print(f'海明距离：{distince} 判定距离：{threshold} 是否相似：{distince <= threshold}')
