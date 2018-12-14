@@ -25,7 +25,7 @@ def extract_keywords(content):
 
 def jaccard(x,y):
     # 去除停用词
-    jieba.analyse.set_stop_words('./stopwords.txt')
+    jieba.analyse.set_stop_words('./files/stopwords.txt')
 
     # 分词与关键词提取
     keywords_x = extract_keywords(x)
@@ -41,7 +41,7 @@ def jaccard(x,y):
 
 # 测试
 if __name__ == '__main__':
-    with open('./sample_x.txt', 'r') as x, open('./sample_y.txt', 'r') as y:
+    with open('./files/sample_x.txt', 'r') as x, open('./files/sample_y.txt', 'r') as y:
         content_x = x.read()
         content_y = y.read()
         similarity = jaccard(content_x, content_y)
