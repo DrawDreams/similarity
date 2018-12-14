@@ -6,14 +6,14 @@ import re
 # 自然语言处理包
 import jieba
 import jieba.analyse
-# 转义字符实体化的包
+# html 包
 import html
 
 
 def extract_keywords(content):
     # 正则过滤 html 标签
     re_exp = re.compile(r'<[^>]+>',re.S)
-    content = re_exp.sub(' ',content)
+    content = re_exp.sub(' ', content)
     # html 转义符实体化
     content = html.unescape(content)
     # 内容切割
@@ -23,7 +23,7 @@ def extract_keywords(content):
     return keywords
 
 
-def jaccard(x,y):
+def jaccard(x, y):
     # 去除停用词
     jieba.analyse.set_stop_words('./files/stopwords.txt')
 
@@ -45,4 +45,4 @@ if __name__ == '__main__':
         content_x = x.read()
         content_y = y.read()
         similarity = jaccard(content_x, content_y)
-        print('相似度: %.2f%%'% (similarity*100))
+        print('相似度: %.2f%%' % (similarity*100))

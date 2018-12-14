@@ -3,13 +3,13 @@
 
 # 正则
 import re
+# html 包
+import html
 # 数学包
 import math
 # 自然语言处理包
 import jieba
 import jieba.analyse
-# 转义字符实体化的包
-import html
 
 
 class SimHash(object):
@@ -28,7 +28,6 @@ class SimHash(object):
                 x = -2
             x = bin(x).replace('0b', '').zfill(64)[-64:]
             return str(x)
-
 
     def simHash(self, content):
         # 正则过滤 html 标签
@@ -64,7 +63,6 @@ class SimHash(object):
                 tmp = "0"
             result.append(tmp)
         return "".join(result)
-
 
     def getDistince(self, simhash1, simhash2):
         length = 0
