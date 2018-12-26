@@ -12,7 +12,7 @@ import html
 
 def extract_keywords(content):
     # 正则过滤 html 标签
-    re_exp = re.compile(r'<[^>]+>',re.S)
+    re_exp = re.compile(r'(<style>.*?<\/style>)|(<[^>]+>)',re.S)
     content = re_exp.sub(' ', content)
     # html 转义符实体化
     content = html.unescape(content)
